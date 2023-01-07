@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+struct count
+{
+    int size;
+    char fname[10];
+};
+void main()
+{
+    int i,j,k,p=0,n,m;
+    char str[100];
+    printf("Enter a string:");
+    gets(str);
+    m=strlen(str);
+    printf("Enter the no. of frames:");
+    scanf("%d",&n);
+    struct count frames[n];
+    printf("Enter the size of each frame:");
+    for(j=0;j<n;j++)
+    {
+        scanf("%d",&frames[j].size);
+        for(i=0;i<frames[j].size;i++)
+        {
+            frames[j].fname[i]=str[p+i];
+        }
+        frames[j].fname[i]='\0';
+        p+=frames[j].size;
+    }
+    printf("The frames are:");
+    for(k=0;k<n;k++)
+    {
+        printf("%d %s\n",frames[k].size+1,frames[k].fname);
+    }
+}
